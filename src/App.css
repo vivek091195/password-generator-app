@@ -1,3 +1,30 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: "Jetbrains";
+  src: local("Jetbrains"),
+    url(./fonts/JetBrainsMono-VariableFont_wght.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Jetbrains";
+  font-weight: 700;
+  src: local("Jetbrains"),
+    url(./fonts/JetBrainsMono-Bold.ttf) format("truetype");
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Jetbrains;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #18171f;
+}
+
+button {
+  border: none;
+  outline: none;
 }

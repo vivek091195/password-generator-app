@@ -1,0 +1,12 @@
+const COLORS = {
+  DARK_BLUE: "#18171F",
+  PALE_BLACK: "#24232C",
+  DARK_GREY: "#817D92",
+  STARLIGHT: "#E6E5EA",
+  GREEN: "#A4FFAF",
+  RED: "#F64A4A",
+  ORANGE: "#FB7C58",
+  YELLOW: "#F8CD65",
+};
+
+export { COLORS };
