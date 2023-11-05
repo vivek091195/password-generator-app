@@ -43,14 +43,26 @@ export const GeneratedPasswordWindow = styled.div`
   `)};
 `;
 
-export const PasswordText = styled.p`
+export const PasswordText = styled.p<{
+  isDefaultPassword: boolean;
+}>`
   font-size: ${FONT_SIZES.lg};
-  color: ${COLORS.STARLIGHT};
+  color: ${({ isDefaultPassword }) =>
+    isDefaultPassword ? COLORS.DARK_GREY : COLORS.STARLIGHT};
+
+  ${mobile(css`
+    font-size: ${FONT_SIZES.md};
+  `)};
 `;
 
 export const IconWrapper = styled.div`
   display: flex;
   cursor: pointer;
+  &:hover {
+    svg > path {
+      fill: ${COLORS.STARLIGHT};
+    }
+  }
 `;
 
 export const CopyText = styled.span`
@@ -58,5 +70,4 @@ export const CopyText = styled.span`
   color: ${COLORS.GREEN};
   font-size: ${FONT_SIZES.sm2};
   margin-right: 1rem;
-  display: none;
 `;

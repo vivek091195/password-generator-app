@@ -9,19 +9,41 @@ import {
 } from "./PasswordGenerator.style";
 import { ReactComponent as Copy } from "../../static/assets/icon-copy.svg";
 import { Configuration } from "./Configuration";
+import { useGenerator } from "./useGenerator";
+import { DEFAULT_PASSWORD } from "../../utils/Config";
 
 const PasswordGenerator: React.FC = () => {
+  const {
+    generatedPassword,
+    passwordLength,
+    setPasswordLength,
+    isCopyClicked,
+    checkboxesConfig,
+    onCheckboxChangeHandler,
+    getSelectedCheckboxes,
+    generatePasswordHandler,
+    onCopyClickHandler,
+  } = useGenerator();
   return (
     <Container>
       <Header>Password Generator</Header>
       <GeneratedPasswordWindow>
-        <PasswordText>PTx1fDaFX</PasswordText>
-        <IconWrapper>
-          <CopyText>Copied</CopyText>
+        <PasswordText isDefaultPassword={!generatedPassword.length}>
+          {generatedPassword || DEFAULT_PASSWORD}
+        </PasswordText>
+        <IconWrapper onClick={onCopyClickHandler}>
+          {isCopyClicked && <CopyText>Copied</CopyText>}
           <Copy />
         </IconWrapper>
       </GeneratedPasswordWindow>
-      <Configuration />
+      <Configuration
+        passwordLength={passwordLength}
+        setPasswordLength={setPasswordLength}
+        checkboxesConfig={checkboxesConfig}
+        onCheckboxChangeHandler={onCheckboxChangeHandler}
+        getSelectedCheckboxes={getSelectedCheckboxes}
+        generatePasswordHandler={generatePasswordHandler}
+      />
     </Container>
   );
 };
